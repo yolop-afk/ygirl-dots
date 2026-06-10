@@ -1,0 +1,82 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top",
+    "height": 20,
+    "margin-top": 5,
+    "margin-left": 5,
+    "margin-right": 5,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["custom/music"],
+    "modules-right": ["pulseaudio", "clock", "tray", "custom/notification", "hyprland/language", "custom/power"],
+    "hyprland/workspaces": {
+         "disable-scroll": true,
+         "sort-by-name": true,
+         "format": " {icon} ",
+         "format-icons": {
+    "1": "󰲠",
+    "2": "󰲢",
+    "3": "󰲤",
+    "4": "󰲦",
+    "5": "󰲨",
+    "6": "󰲪",
+    "7": "󰲬",
+    "8": "󰲮",
+    "9": "󰲰",
+    "10": "󰿬",
+}
+     },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "custom/music": {
+        "format": "  {}",
+        "escape": true,
+        "interval": 5,
+        "tooltip": false,
+        "exec": "playerctl metadata --format='{{ title }}'",
+        "on-click": "playerctl play-pause",
+        "max-length": 50
+    },
+    "clock": {
+        "timezone": "America/Toronto",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": " {:%d/%m/%Y}",
+        "format": " {:%H:%M}"
+    },
+	"pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", "", " "]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "custom/power": {
+	"min-length" : 3,
+        "tooltip": false,
+        "on-click": "wlogout &",
+	"format": "<span weight='bold'></span>"
+    },
+
+  "custom/notification": {
+    "tooltip": true,
+    "format": ""
+    },
+
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "escape": true,
+    
+  "hyprland/language": {
+    "format": "{}",
+    "min-length" : 1,
+    "format-en": "🇺🇸",
+    "format-ru": "🇷🇺",
+    "format-uk": "🇺🇦",
+   },
+
+}

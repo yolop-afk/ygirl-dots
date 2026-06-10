@@ -1,0 +1,103 @@
+@import "colors.css";
+
+* {
+  font-family: "DepartureMono Nerd Font Propo";
+  font-size: 14px;
+  min-height: 0;
+}
+
+#waybar {
+  border-radius: 6px;
+  background-color: rgba(30, 30, 32, 0.6);
+  color: @text;
+  margin: 3px;
+}
+
+#workspaces {
+  border-radius: 7px;
+  margin: 2px;
+  background-color: rgba(30, 30, 30, 0.8);
+  margin-left: 0.5rem;
+}
+
+#workspaces button {
+  color: @text;
+  border-radius: 7px;
+  padding: 0.2rem 0.4rem;
+}
+
+#workspaces button.active {
+  color: @sky;
+}
+
+#workspaces button:hover {
+  color: @sapphire;
+}
+
+#custom-music,
+#tray,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#custom-lock,
+#custom-power,
+#hyprland-language {
+  padding: 0.1rem 0.6rem;
+  background-color: rgba(30, 30, 30, 0.8);
+  margin: 2px 0;
+}
+
+#clock {
+  color: @text;
+  border-radius: 0px 7px 7px 0px;
+  margin-right: 0.5rem;
+}
+
+#battery {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+#backlight, #battery {
+  border-radius: 0;
+}
+
+#pulseaudio {
+  color: @text;
+  border-radius: 7px 0px 0px 7px;
+  margin-left: 0.5rem;
+}
+
+#custom-music {
+  color: @text;
+  border-radius: 7px;
+}
+
+#tray {
+  margin-right: 0.5rem;
+  border-radius: 7px;
+}
+
+#custom-power {
+  color: @text;
+  border-radius: 0px 7px 7px 0px;
+  margin-right: 0.6rem;
+}
+
+#language {
+  color: @text;
+  border-radius: 7px 0px 0px 7px;
+}
+
+#language, #custom-power {
+  background-color: rgba(30, 30, 35, 0.8);
+  padding: 7px;
+}
