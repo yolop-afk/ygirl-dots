@@ -1,11 +1,12 @@
---wr terminal
-
+-- Yo ty for using this.
+-- Dots made by Yolop make sure to send me
+-- your dots insipierd by mine at 'yolop69' discord if you want.
+-- Hope you'll gave great time using them <3
 
 ------------------
 ---- MONITORS ----
 ------------------
 
--- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
     output   = "HDMI-A-1",
     mode     = "1920x1080@100Hz",
@@ -17,22 +18,15 @@ hl.monitor({
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
-
--- Set programs that you use
 local terminal    = "kitty"
 local fileManager = "thunar"
 local menu        = "rofi -show drun"
-
-
 -------------------
 ---- AUTOSTART ----
 -------------------
-
 hl.on("hyprland.start", function () 
-  hl.exec_cmd("vesktop")
-  hl.exec_cmd("waybar & awww-daemon & firefox") -- Execute waybar, hyprpaper, firefox
+hl.exec_cmd("waybar & awww-daemon & firefox & vesktop")
 end)
-
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
@@ -47,26 +41,12 @@ hl.env("HYPRCURSOR_SIZE", "24")
 ----- PERMISSIONS -----
 -----------------------
 
--- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Permissions/
--- Please note permission changes here require a Hyprland restart and are not applied on-the-fly
--- for security reasons
-
--- hl.config({
---   ecosystem = {
---     enforce_permissions = true,
---   },
--- })
-
--- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
--- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
--- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
-
+--uhh
 
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
 
--- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
         gaps_in  = 4,
@@ -79,10 +59,7 @@ active_border   = { colors = {"rgba(ffb6c1ee)", "rgba(ffb6feee)"}, angle = 45 },
             inactive_border = "rgba(595959aa)",
         },
 
-        -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
         resize_on_border = false,
-
-        -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
         allow_tearing = false,
 
         layout = "dwindle",
@@ -183,39 +160,19 @@ hl.animation({ leaf = "workspacesIn",  enabled = true, speed = 3,    bezier = "e
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 3,    bezier = "easeOutQuart", style = "slide" })
 hl.animation({ leaf = "zoomFactor",    enabled = true, speed = 7,    bezier = "quick" })
 
--- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
--- "Smart gaps" / "No gaps when only"
--- uncomment all if you wish to use that.
--- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
--- hl.workspace_rule({ workspace = "f[1]",   gaps_out = 0, gaps_in = 0 })
--- hl.window_rule({
---     name  = "no-gaps-wtv1",
---     match = { float = false, workspace = "w[tv1]" },
---     border_size = 0,
---     rounding    = 0,
--- })
--- hl.window_rule({
---     name  = "no-gaps-f1",
---     match = { float = false, workspace = "f[1]" },
---     border_size = 0,
---     rounding    = 0,
--- })
 
--- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
     dwindle = {
         preserve_split = true, -- You probably want this
     },
 })
 
--- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
 hl.config({
     master = {
         new_status = "master",
     },
 })
 
--- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
 hl.config({
     scrolling = {
         fullscreen_on_one_column = true,
@@ -240,7 +197,7 @@ hl.config({
 
 hl.config({
     input = {
-        kb_layout  = "us,ru,ua",
+        kb_layout  = "us", 
         kb_variant = "",
         kb_model   = "",
         kb_options = "grp:alt_shift_toggle",
@@ -249,7 +206,7 @@ hl.config({
         follow_mouse = 1,
 
 	accel_profile = flat,
-	sensitivity = -0.6, -- -1.0 - 1.0, 0 means no modification.
+	sensitivity = -0.6, -- more perosnilized for Yolop here
 	
         touchpad = {
             natural_scroll = true,
@@ -263,8 +220,7 @@ hl.gesture({
     action = "workspace"
 })
 
--- Example per-device config
--- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
+--per device if you're into that
 hl.device({
     name        = "epic-mouse-v1",
     sensitivity = -0.5,
@@ -277,7 +233,7 @@ hl.device({
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
--- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
+-- most of the binds are default
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
@@ -341,19 +297,12 @@ hl.bind(mainMod .. "+ J", hl.dsp.exec_cmd("hyprpicker -a"))
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
 
--- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
--- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
-
--- Example window rules that are useful
-
 local suppressMaximizeRule = hl.window_rule({
-    -- Ignore maximize requests from all apps. You'll probably like this.
     name  = "suppress-maximize-events",
     match = { class = ".*" },
 
     suppress_event = "maximize",
 })
--- suppressMaximizeRule:set_enabled(false)
 
 hl.window_rule({
     -- Fix some dragging issues with XWayland
@@ -370,14 +319,6 @@ hl.window_rule({
     no_focus = true,
 })
 
--- Layer rules also return a handle.
--- local overlayLayerRule = hl.layer_rule({
---     name  = "no-anim-overlay",
---     match = { namespace = "^my-overlay$" },
---     no_anim = true,
--- })
--- overlayLayerRule:set_enabled(false)
-
 -- Hyprland-run windowrule
 hl.window_rule({
     name  = "move-hyprland-run",
@@ -387,7 +328,7 @@ hl.window_rule({
     float = true,
 })
 
--- Kitty
+-- Kitty no blur
 hl.window_rule({
     name = "kitty-no-blur",
     match = { class = "^kitty$" },
@@ -400,20 +341,14 @@ hl.window_rule({
     opacity = "0.85 override",
 })
 
--- Blender
+-- Blender no opacity rule
 hl.window_rule({
     name = "blender-opacity",
     match = { class = "^blender$" },
     opacity = "1 override",
 })
 
--- Firefox
-hl.window_rule({
-    name = "firefox-no-blur",
-    match = { class = "^firefox$" },
-    no_blur = true,
-})
-
+-- Firefox no opacity rule
 hl.window_rule({
     name = "firefox-opacity",
     match = { class = "^firefox$" },
