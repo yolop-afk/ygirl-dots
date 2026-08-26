@@ -53,7 +53,7 @@
     },
 
     "clock": {
-        "timezone": "America/Toronto",
+        "timezone": "Asia/Tokyo", // "Continent/Country"
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": " {:%d/%m/%Y}",
         "format": " {:%H:%M}"
@@ -83,6 +83,7 @@
         "format-icons": ["", "", "", "", ""]
     },
 
+// I barely use this so there is not really a theme for this one in the dots.. mb.
     "custom/power": {
         "min-length": 3,
         "tooltip": false,
@@ -95,6 +96,7 @@
         "format": ""
     },
 
+// Personalized for Yolop, you can leave it like that or make it so there is no module at all.
     "hyprland/language": {
         "format": "{}",
         "min-length": 1,
