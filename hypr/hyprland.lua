@@ -288,7 +288,7 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
-hl.bind(mainMod .. " + K", hl.dsp.exec_cmd("/home/yolop/.scripts/rofi-scripts.sh"))
+hl.bind(mainMod .. " + K", hl.dsp.exec_cmd("/home/yolop/.scripts/wp&theme-scrip.sh"))
 hl.bind("ALT + F10", hl.dsp.exec_cmd("hyprshot -z -o /home/yolop/Pictures/screenshots -m region"))
 hl.bind(mainMod .. "+ P", hl.dsp.window.pin({ action = "toggle" }))
 hl.bind(mainMod .. "+ I", hl.dsp.window.fullscreen({ action = "toggle" }))
