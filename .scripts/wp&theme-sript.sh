@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#this is mis-spelled on purpose
 SCRIPT_DIR="$HOME/.scripts/wallpaper-changer-fr-now"
 THEME="$HOME/.local/share/rofi/themes/scripts.rasi"
 
